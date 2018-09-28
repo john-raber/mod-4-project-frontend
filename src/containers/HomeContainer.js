@@ -5,6 +5,7 @@ import { Grid, Row, Col, PageHeader } from "react-bootstrap";
 import TripForm from "../components/TripForm";
 import PlaceContainer from "./PlaceContainer";
 import TripList from "../components/TripList";
+import CityFilter from "../components/CityFilter";
 
 const HomeContainer = () => {
   return (
@@ -12,15 +13,29 @@ const HomeContainer = () => {
       <Row className="show-grid">
         <Col lg={8}>
           <Switch>
+            {/* If route is /trips -- we show the TripList */}
             <Route exact path="/trips">
               <Fragment>
                 <PageHeader>Trips</PageHeader>
                 <TripList />
               </Fragment>
             </Route>
+            {/* If route is / -- we show the PlaceContainer */}
             <Route path="/">
               <Fragment>
-                <PageHeader>Most Popular Places!</PageHeader>
+                {/* If route is /places or / we show the matching header
+                  and CityFilter for /places */}
+                <Switch>
+                  <Route exact path="/places">
+                    <Fragment>
+                      <PageHeader>Places!</PageHeader>
+                      <CityFilter />
+                    </Fragment>
+                  </Route>
+                  <Route path="/">
+                    <PageHeader>Most Popular Places!</PageHeader>
+                  </Route>
+                </Switch>
                 <PlaceContainer />
               </Fragment>
             </Route>

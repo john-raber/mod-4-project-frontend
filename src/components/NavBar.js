@@ -12,7 +12,7 @@ const NavBar = () => {
       </Navbar.Header>
       <Nav>
         <NavItem href="/trips">Trips</NavItem>
-        <NavItem>Places</NavItem>
+        <NavItem href="/places">Places</NavItem>
       </Nav>
     </Navbar>
   );
