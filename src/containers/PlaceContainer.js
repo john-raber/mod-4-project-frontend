@@ -3,7 +3,7 @@ import { Grid, Row, Col } from "react-bootstrap";
 
 import PlaceCard from "../components/PlaceCard";
 
-const PlaceContainer = ({ places }) => {
+const PlaceContainer = ({ places, handleClick }) => {
   return (
     <Fragment>
       <Grid>
@@ -13,7 +13,7 @@ const PlaceContainer = ({ places }) => {
               {places.map(p => {
                 return (
                   <Col lg={6}>
-                    <PlaceCard place={p} />
+                    <PlaceCard handleClick={handleClick} place={p} />
                   </Col>
                 );
               })}
