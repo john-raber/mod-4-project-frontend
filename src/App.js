@@ -29,7 +29,10 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route path="/trips/:tripId" component={TripContainer} />
-          <Route path="/" component={HomeContainer} />
+          <Route
+            path="/"
+            render={() => <HomeContainer places={this.state.places} />}
+          />
         </Switch>
       </Fragment>
     );

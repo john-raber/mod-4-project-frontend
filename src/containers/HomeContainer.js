@@ -7,7 +7,7 @@ import PlaceContainer from "./PlaceContainer";
 import TripList from "../components/TripList";
 import CityFilter from "../components/CityFilter";
 
-const HomeContainer = () => {
+const HomeContainer = ({ places }) => {
   return (
     <Grid>
       <Row className="show-grid">
@@ -36,7 +36,7 @@ const HomeContainer = () => {
                     <PageHeader>Most Popular Places!</PageHeader>
                   </Route>
                 </Switch>
-                <PlaceContainer />
+                <PlaceContainer places={places} />
               </Fragment>
             </Route>
           </Switch>
