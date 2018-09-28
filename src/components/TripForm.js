@@ -4,7 +4,9 @@ import {
   Form,
   FormGroup,
   ControlLabel,
-  FormControl
+  FormControl,
+  Well,
+  Image
 } from "react-bootstrap";
 
 class TripForm extends Component {
@@ -39,6 +41,11 @@ class TripForm extends Component {
             placeholder="Write some notes!"
           />
         </FormGroup>
+        <Well>
+          {this.props.addedPlaces.map(p => {
+            return <Image src={p.img_url} rounded />;
+          })}
+        </Well>
         <Button type="submit">Create Trip</Button>
       </Form>
     );
