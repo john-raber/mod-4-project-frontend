@@ -14,9 +14,13 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch(`http://localhost:3001/users`)
+    fetch(`http://localhost:3001/places`)
       .then(response => response.json())
-      .then(users => console.log(users));
+      .then(places =>
+        this.setState({
+          places: places
+        })
+      );
   }
 
   render() {
