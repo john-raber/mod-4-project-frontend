@@ -8,6 +8,11 @@ import TripContainer from "./containers/TripContainer";
 import "./App.css";
 
 class App extends Component {
+  state = {
+    currentUser: [],
+    places: []
+  };
+
   componentDidMount() {
     fetch(`http://localhost:3001/users`)
       .then(response => response.json())
