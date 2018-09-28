@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
-import TravelContainer from "./containers/TravelContainer";
 import HomeContainer from "./containers/HomeContainer";
 
 import "./App.css";

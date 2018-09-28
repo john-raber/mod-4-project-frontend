@@ -11,7 +11,7 @@ const NavBar = () => {
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>
-        <NavItem>Trips</NavItem>
+        <NavItem href="/trips">Trips</NavItem>
         <NavItem>Places</NavItem>
       </Nav>
     </Navbar>
