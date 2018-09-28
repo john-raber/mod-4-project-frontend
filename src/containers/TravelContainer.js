@@ -1,7 +1,7 @@
 import React from 'react';
 import SideMenu from '../components/SideMenu';
 import Map from '../components/Map';
-import CardContainer from './CardContainer';
+import PlaceContainer from './PlaceContainer';
 
 import { Grid, Row, Col } from 'react-bootstrap';
 
@@ -20,7 +20,7 @@ class TravelContainer extends React.Component {
           </Col>
           <Col xs={12} md={8}>
             <Map />
-            <CardContainer />
+            <PlaceContainer />
           </Col>
 
         </Row>

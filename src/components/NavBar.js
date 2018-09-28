@@ -1,19 +1,21 @@
-import React from 'react';
-
-import { Navbar } from 'react-bootstrap';
+import React from "react";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <Navbar >
+    <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href='#home'>Travelgram</a>
+          <NavLink to="/">Travelgram</NavLink>
         </Navbar.Brand>
-          User
       </Navbar.Header>
-
+      <Nav>
+        <NavItem>Trips</NavItem>
+        <NavItem>Places</NavItem>
+      </Nav>
     </Navbar>
-  )
-}
+  );
+};
 
 export default NavBar;

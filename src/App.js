@@ -1,23 +1,27 @@
-import React, { Component } from 'react';
-import NavBar from './components/NavBar';
-import TravelContainer from './containers/TravelContainer';
+import React, { Component, Fragment } from "react";
+import { Route, Switch } from "react-router-dom";
 
-import './App.css';
+import NavBar from "./components/NavBar";
+import TravelContainer from "./containers/TravelContainer";
+import HomeContainer from "./containers/HomeContainer";
+
+import "./App.css";
 
 class App extends Component {
   componentDidMount() {
-    fetch(`http://localhost:3000/users`)
-    .then(response => response.json())
-    .then(users => console.log(users))
+    fetch(`http://localhost:3001/users`)
+      .then(response => response.json())
+      .then(users => console.log(users));
   }
 
   render() {
     return (
-      <div className="App">
+      <Fragment>
         <NavBar />
-        <TravelContainer />
-
-      </div>
+        <Switch>
+          <Route path="/" component={HomeContainer} />
+        </Switch>
+      </Fragment>
     );
   }
 }
