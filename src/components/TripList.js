@@ -1,5 +1,6 @@
 import React from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class TripList extends React.Component {
   render() {
@@ -7,13 +8,15 @@ class TripList extends React.Component {
       <ListGroup>
         {this.props.currentUser.trips.map(trip => {
           return (
-            <ListGroupItem
-              bsStyle="warning"
-              key={trip.id}
-              onClick={() => this.props.handleCurrentTrip(trip)}
-            >
-              {trip.name}
-            </ListGroupItem>
+            <Link to={`/trips/${trip.id}`}>
+              <ListGroupItem
+                bsStyle="warning"
+                key={trip.id}
+                onClick={() => this.props.handleCurrentTrip(trip)}
+              >
+                {trip.name}
+              </ListGroupItem>
+            </Link>
           );
         })}
       </ListGroup>
