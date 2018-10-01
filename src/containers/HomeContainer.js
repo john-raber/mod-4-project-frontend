@@ -46,7 +46,12 @@ class HomeContainer extends Component {
                     <Route exact path="/places">
                       <Fragment>
                         <PageHeader>Places!</PageHeader>
-                        <CityFilter />
+                        <CityFilter
+                          cities={this.props.cities}
+                          handleFormFilterChange={
+                            this.props.handleFormFilterChange
+                          }
+                        />
                       </Fragment>
                     </Route>
                     <Route path="/">
@@ -65,6 +70,8 @@ class HomeContainer extends Component {
             <TripForm
               addedPlaces={this.state.addedPlaces}
               handleCreateTrip={this.props.handleCreateTrip}
+              cities={this.props.cities}
+              handleFormFilterChange={this.props.handleFormFilterChange}
             />
           </Col>
         </Row>

@@ -270,17 +270,23 @@ class App extends Component {
       ]
     },
     places: [],
-    currentTrip: {}
+    currentTrip: {},
+    cities: [],
+    filteredPlaces: null
   };
 
   componentDidMount() {
     fetch(`http://localhost:3000/places`)
       .then(response => response.json())
-      .then(places =>
+      .then(places => {
+        let uniqueCities = new Set();
+        console.log(places);
+        places.forEach(p => uniqueCities.add(p.city.name));
         this.setState({
-          places: places
-        })
-      );
+          places: places,
+          cities: [...uniqueCities]
+        });
+      });
   }
 
   handleCreateTrip = (event, addedPlaces) => {
@@ -352,6 +358,17 @@ class App extends Component {
     });
   };
 
+  handleFormFilterChange = city => {
+    let filteredPlaces = this.state.places.filter(
+      place => place.city.name === city
+    );
+    city === ""
+      ? this.setState({ filteredPlaces: "" })
+      : this.setState({
+          filteredPlaces: filteredPlaces
+        });
+  };
+
   render() {
     return (
       <Fragment>
@@ -370,10 +387,16 @@ class App extends Component {
             path="/"
             render={() => (
               <HomeContainer
-                places={this.state.places}
+                places={
+                  this.state.filteredPlaces
+                    ? this.state.filteredPlaces
+                    : this.state.places
+                }
                 handleCreateTrip={this.handleCreateTrip}
                 currentUser={this.state.currentUser}
                 handleCurrentTrip={this.handleCurrentTrip}
+                cities={this.state.cities}
+                handleFormFilterChange={this.handleFormFilterChange}
               />
             )}
           />
