@@ -16,27 +16,55 @@ class TripForm extends Component {
     date: "",
     comment: ""
   };
+
+  handleFormChange = (name, value) => this.setState({ [name]: value });
+
   render() {
     return (
       <Form>
         <FormGroup>
           <ControlLabel>Name</ControlLabel>
-          <FormControl type="text" placeholder="Name your trip!" />
+          <FormControl
+            name="name"
+            onChange={e => {
+              this.handleFormChange(e.target.name, e.target.value);
+            }}
+            type="text"
+            placeholder="Name your trip!"
+          />
         </FormGroup>
         <FormGroup>
           <ControlLabel>City</ControlLabel>
-          <FormControl componentClass="select" placeholder="Pick your city!">
+          <FormControl
+            name="city"
+            onChange={e => {
+              this.handleFormChange(e.target.name, e.target.value);
+            }}
+            componentClass="select"
+            placeholder="Pick your city!"
+          >
             <option value="Washington DC">Washington DC</option>
             <option value="New York">New York</option>
           </FormControl>
         </FormGroup>
         <FormGroup>
           <ControlLabel>Date</ControlLabel>
-          <FormControl type="text" placeholder="Pick your date!" />
+          <FormControl
+            name="date"
+            onChange={e => {
+              this.handleFormChange(e.target.name, e.target.value);
+            }}
+            type="text"
+            placeholder="Pick your date!"
+          />
         </FormGroup>
         <FormGroup>
           <ControlLabel>Comment</ControlLabel>
           <FormControl
+            name="comment"
+            onChange={e => {
+              this.handleFormChange(e.target.name, e.target.value);
+            }}
             componentClass="textarea"
             placeholder="Write some notes!"
           />
