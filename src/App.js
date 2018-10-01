@@ -269,7 +269,8 @@ class App extends Component {
         }
       ]
     },
-    places: []
+    places: [],
+    currentTrip: {}
   };
 
   componentDidMount() {
@@ -293,6 +294,7 @@ class App extends Component {
     })
       .then(response => response.json())
       .then(trip => {
+        console.log(trip);
         let promises = addedPlaces.map(place => {
           return fetch("http://localhost:3000/place_trips", {
             method: "POST",
@@ -305,7 +307,12 @@ class App extends Component {
         });
         Promise.all(promises)
           .then(response => {
-            this.props.history.push(`/trips/${trip.id}`);
+            fetch(`http://localhost:3000/trips/${trip.id}`)
+              .then(response => response.json())
+              .then(currentTrip => {
+                this.setState({ currentTrip: currentTrip });
+                this.props.history.push(`/trips/${trip.id}`);
+              });
           })
           .catch(function(err) {
             console.log("A promise failed to resolve", err);
@@ -328,6 +335,10 @@ class App extends Component {
     };
   };
 
+  handleCurrentTrip = trip => {
+    this.setState({ currentTrip: trip });
+  };
+
   render() {
     return (
       <Fragment>
@@ -336,7 +347,7 @@ class App extends Component {
           <Route
             path="/trips/:tripId"
             render={() => (
-              <TripContainer currentUser={this.state.currentUser} />
+              <TripContainer currentTrip={this.state.currentTrip} />
             )}
           />
           <Route
@@ -346,6 +357,7 @@ class App extends Component {
                 places={this.state.places}
                 handleCreateTrip={this.handleCreateTrip}
                 currentUser={this.state.currentUser}
+                handleCurrentTrip={this.handleCurrentTrip}
               />
             )}
           />

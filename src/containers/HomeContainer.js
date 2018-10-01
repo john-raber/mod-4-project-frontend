@@ -31,7 +31,10 @@ class HomeContainer extends Component {
               <Route exact path="/trips">
                 <Fragment>
                   <PageHeader>Trips</PageHeader>
-                  <TripList currentUser={this.props.currentUser} />
+                  <TripList
+                    currentUser={this.props.currentUser}
+                    handleCurrentTrip={this.props.handleCurrentTrip}
+                  />
                 </Fragment>
               </Route>
               {/* If route is / -- we show the PlaceContainer */}
