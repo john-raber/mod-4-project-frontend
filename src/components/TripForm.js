@@ -21,7 +21,12 @@ class TripForm extends Component {
 
   render() {
     return (
-      <Form>
+      <Form
+        onSubmit={event => {
+          console.log("onSubmit", this.props.addedPlaces);
+          this.props.handleCreateTrip(event, this.props.addedPlaces);
+        }}
+      >
         <FormGroup>
           <ControlLabel>Name</ControlLabel>
           <FormControl

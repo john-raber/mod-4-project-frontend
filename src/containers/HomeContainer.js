@@ -31,7 +31,7 @@ class HomeContainer extends Component {
               <Route exact path="/trips">
                 <Fragment>
                   <PageHeader>Trips</PageHeader>
-                  <TripList />
+                  <TripList currentUser={this.props.currentUser} />
                 </Fragment>
               </Route>
               {/* If route is / -- we show the PlaceContainer */}
@@ -59,7 +59,10 @@ class HomeContainer extends Component {
             </Switch>
           </Col>
           <Col lg={4}>
-            <TripForm addedPlaces={this.state.addedPlaces} />
+            <TripForm
+              addedPlaces={this.state.addedPlaces}
+              handleCreateTrip={this.props.handleCreateTrip}
+            />
           </Col>
         </Row>
       </Grid>
