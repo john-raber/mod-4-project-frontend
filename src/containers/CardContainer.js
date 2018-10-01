@@ -1,13 +1,13 @@
-import React from 'react';
-import PlaceCard from '../components/PlaceCard';
+import React from "react";
+import PlaceCard from "../components/PlaceCard";
 
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from "react-bootstrap";
 
 const CardContainer = () => {
   return (
     <div>
       <Grid>
-          Card Container
+        Card Container
         <Row className="show-grid">
           <Col xs={4} md={3}>
             <PlaceCard />
@@ -21,13 +21,10 @@ const CardContainer = () => {
           <Col xs={4} md={3}>
             <PlaceCard />
           </Col>
-
         </Row>
-
       </Grid>
     </div>
-
-  )
-}
+  );
+};
 
 export default CardContainer;

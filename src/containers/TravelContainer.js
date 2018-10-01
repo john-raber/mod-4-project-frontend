@@ -1,14 +1,13 @@
-import React from 'react';
-import SideMenu from '../components/SideMenu';
-import Map from '../components/Map';
-import CardContainer from './CardContainer';
+import React from "react";
+import SideMenu from "../components/SideMenu";
+import Map from "../components/Map";
+import CardContainer from "./CardContainer";
 
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col } from "react-bootstrap";
 
 class TravelContainer extends React.Component {
   constructor() {
-    super()
-
+    super();
   }
 
   render() {
@@ -22,12 +21,10 @@ class TravelContainer extends React.Component {
             <Map />
             <CardContainer />
           </Col>
-
         </Row>
-
       </Grid>
-    )
+    );
   }
 }
 
-export default TravelContainer
+export default TravelContainer;
