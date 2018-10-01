@@ -12,7 +12,7 @@ const PlaceContainer = ({ places, handleClick }) => {
             <Row className="show-grid">
               {places.map(p => {
                 return (
-                  <Col lg={6}>
+                  <Col lg={6} key={p.id}>
                     <PlaceCard handleClick={handleClick} place={p} />
                   </Col>
                 );

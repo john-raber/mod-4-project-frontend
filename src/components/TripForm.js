@@ -17,11 +17,19 @@ class TripForm extends Component {
     comment: ""
   };
 
-  handleFormChange = (name, value) => this.setState({ [name]: value });
+  handleFormChange = (name, value) => {
+    this.setState({ [name]: value });
+  };
 
   render() {
+    console.log("TripForm", this.props.cities);
     return (
-      <Form>
+      <Form
+        onSubmit={event => {
+          console.log("onSubmit", this.props.addedPlaces);
+          this.props.handleCreateTrip(event, this.props.addedPlaces);
+        }}
+      >
         <FormGroup>
           <ControlLabel>Name</ControlLabel>
           <FormControl
@@ -39,12 +47,16 @@ class TripForm extends Component {
             name="city"
             onChange={e => {
               this.handleFormChange(e.target.name, e.target.value);
+              this.props.handleFormFilterChange(e.target.value);
             }}
             componentClass="select"
-            placeholder="Pick your city!"
           >
-            <option value="Washington DC">Washington DC</option>
-            <option value="New York">New York</option>
+            <option value="">Select a city</option>
+            {this.props.cities.map(city => (
+              <option value={city} key={city}>
+                {city}
+              </option>
+            ))}
           </FormControl>
         </FormGroup>
         <FormGroup>

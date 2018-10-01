@@ -1,16 +1,24 @@
 import React from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class TripList extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <ListGroup>
-        <ListGroupItem bsStyle="warning">Trip Name 1</ListGroupItem>
-        <ListGroupItem bsStyle="warning">Trip Name 2</ListGroupItem>
+        {this.props.currentUser.trips.map(trip => {
+          return (
+            <Link to={`/trips/${trip.id}`}>
+              <ListGroupItem
+                bsStyle="warning"
+                key={trip.id}
+                onClick={() => this.props.handleCurrentTrip(trip)}
+              >
+                {trip.name}
+              </ListGroupItem>
+            </Link>
+          );
+        })}
       </ListGroup>
     );
   }

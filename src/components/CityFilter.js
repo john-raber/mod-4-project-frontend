@@ -1,12 +1,19 @@
 import React from "react";
 import { Form, FormControl } from "react-bootstrap";
 
-const CityFilter = () => {
+const CityFilter = ({ handleFormFilterChange, cities }) => {
   return (
     <Form>
-      <FormControl componentClass="select" placeholder="Pick your city!">
-        <option value="Washington DC">Washington DC</option>
-        <option value="New York">New York</option>
+      <FormControl
+        componentClass="select"
+        onChange={e => handleFormFilterChange(e.target.value)}
+      >
+        <option value="">Select a city</option>
+        {cities.map(city => (
+          <option value={city} key={city}>
+            {city}
+          </option>
+        ))}
       </FormControl>
     </Form>
   );
