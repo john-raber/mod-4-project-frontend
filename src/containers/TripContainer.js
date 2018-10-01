@@ -1,14 +1,18 @@
 import React, { Fragment } from "react";
 import { Grid, Row, Col, PageHeader, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import PlaceCard from "../components/PlaceCard";
 
-const TripContainer = ({ currentTrip }) => {
+const TripContainer = ({ currentTrip, handleDeletePlace }) => {
   return (
     <Fragment>
       {/*Trip Page*/}
       <PageHeader>{currentTrip.name}</PageHeader>
-      <Button>Add Place</Button>
+      <Link to="/places">
+        <Button>Add Place</Button>
+      </Link>
+
       <Grid>
         <Row className="show-grid">
           <Col md={12} lg={12}>
@@ -16,7 +20,10 @@ const TripContainer = ({ currentTrip }) => {
               {currentTrip.places.map(place => {
                 return (
                   <Col md={3} lg={3}>
-                    <PlaceCard place={place} />
+                    <PlaceCard
+                      place={place}
+                      handleDeletePlace={handleDeletePlace}
+                    />
                   </Col>
                 );
               })}

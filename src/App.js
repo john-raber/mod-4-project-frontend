@@ -339,6 +339,19 @@ class App extends Component {
     this.setState({ currentTrip: trip });
   };
 
+  handleDeletePlace = place => {
+    //find place_trip id from currentUser.place_trip with place.id and currentTrip.id
+    let selectedPlaceTrip = this.state.currentUser.place_trips.find(
+      place_trips =>
+        place_trips.place_id === place.id &&
+        place_trips.trip_id === this.state.currentTrip.id
+    );
+
+    fetch(`http://localhost:3000/place_trips/${selectedPlaceTrip.id}`, {
+      method: "DELETE"
+    });
+  };
+
   render() {
     return (
       <Fragment>
@@ -347,7 +360,10 @@ class App extends Component {
           <Route
             path="/trips/:tripId"
             render={() => (
-              <TripContainer currentTrip={this.state.currentTrip} />
+              <TripContainer
+                currentTrip={this.state.currentTrip}
+                handleDeletePlace={this.handleDeletePlace}
+              />
             )}
           />
           <Route
