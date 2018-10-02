@@ -27,12 +27,30 @@ class HomeContainer extends Component {
         <Row className="show-grid">
           <Col lg={8}>
             <Switch>
+              <Route exact path="/trips/:tripId/places">
+                <Fragment>
+                  <PageHeader>
+                    Places! <small>Click on a place to add to your trip</small>
+                  </PageHeader>
+
+                  <CityFilter
+                    bsClass="custom-city-filter"
+                    cities={this.props.cities}
+                    handleFormFilterChange={this.props.handleFormFilterChange}
+                  />
+                  <PlaceContainer
+                    handleClick={this.handleAddPlace}
+                    places={this.props.places}
+                  />
+                </Fragment>
+              </Route>
               {/* If route is /trips -- we show the TripList */}
               <Route exact path="/trips">
                 <Fragment>
                   <PageHeader>Trips</PageHeader>
                   <TripList
                     currentUser={this.props.currentUser}
+                    trips={this.props.trips}
                     handleCurrentTrip={this.props.handleCurrentTrip}
                   />
                 </Fragment>
@@ -73,10 +91,14 @@ class HomeContainer extends Component {
           </Col>
           <Col lg={4}>
             <TripForm
+              edit={this.props.edit}
+              currentTrip={this.props.currentTrip}
               addedPlaces={this.state.addedPlaces}
               handleCreateTrip={this.props.handleCreateTrip}
               cities={this.props.cities}
               handleFormFilterChange={this.props.handleFormFilterChange}
+              handleToggleEdit={this.props.handleToggleEdit}
+              handleUpdateTrip={this.props.handleUpdateTrip}
             />
           </Col>
         </Row>

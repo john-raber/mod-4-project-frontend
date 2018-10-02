@@ -10,8 +10,8 @@ const CityFilter = ({ handleFormFilterChange, cities }) => {
       >
         <option value="">Select a city</option>
         {cities.map(city => (
-          <option value={city} key={city}>
-            {city}
+          <option value={city.name} key={city.id}>
+            {city.name}
           </option>
         ))}
       </FormControl>

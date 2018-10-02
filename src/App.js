@@ -13,6 +13,50 @@ class App extends Component {
       id: 1,
       name: "Christopher Columbus",
       email: "chris@email.com",
+      cities: [
+        {
+          id: 1,
+          name: "Washington DC",
+          created_at: "2018-09-28T20:09:50.345Z",
+          updated_at: "2018-09-28T20:09:50.345Z"
+        },
+        {
+          id: 1,
+          name: "Washington DC",
+          created_at: "2018-09-28T20:09:50.345Z",
+          updated_at: "2018-09-28T20:09:50.345Z"
+        },
+        {
+          id: 1,
+          name: "Washington DC",
+          created_at: "2018-09-28T20:09:50.345Z",
+          updated_at: "2018-09-28T20:09:50.345Z"
+        },
+        {
+          id: 1,
+          name: "Washington DC",
+          created_at: "2018-09-28T20:09:50.345Z",
+          updated_at: "2018-09-28T20:09:50.345Z"
+        },
+        {
+          id: 1,
+          name: "Washington DC",
+          created_at: "2018-09-28T20:09:50.345Z",
+          updated_at: "2018-09-28T20:09:50.345Z"
+        },
+        {
+          id: 1,
+          name: "Washington DC",
+          created_at: "2018-09-28T20:09:50.345Z",
+          updated_at: "2018-09-28T20:09:50.345Z"
+        },
+        {
+          id: 1,
+          name: "Washington DC",
+          created_at: "2018-09-28T20:09:50.345Z",
+          updated_at: "2018-09-28T20:09:50.345Z"
+        }
+      ],
       trips: [
         {
           id: 1,
@@ -21,32 +65,6 @@ class App extends Component {
           date: "2018-10-09T00:00:00.000Z",
           comment: "so much fun",
           places: [
-            {
-              id: 1,
-              name: "Washington Monument",
-              img_url:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
-              lat: "38.8895",
-              lng: "-77.035278",
-              description:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-              city_id: 1,
-              created_at: "2018-10-01T13:07:21.413Z",
-              updated_at: "2018-10-01T13:07:21.413Z"
-            },
-            {
-              id: 2,
-              name: "Lincoln Memorial",
-              img_url:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
-              lat: "38.8893",
-              lng: "-77.0502",
-              description:
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-              city_id: 1,
-              created_at: "2018-10-01T13:07:21.419Z",
-              updated_at: "2018-10-01T13:07:21.419Z"
-            },
             {
               id: 3,
               name: "Thomas Jefferson Memorial",
@@ -57,8 +75,8 @@ class App extends Component {
               description:
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
               city_id: 1,
-              created_at: "2018-10-01T13:07:21.423Z",
-              updated_at: "2018-10-01T13:07:21.423Z"
+              created_at: "2018-09-28T20:09:50.388Z",
+              updated_at: "2018-09-28T20:09:50.388Z"
             },
             {
               id: 4,
@@ -70,8 +88,8 @@ class App extends Component {
               description:
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
               city_id: 1,
-              created_at: "2018-10-01T13:07:21.427Z",
-              updated_at: "2018-10-01T13:07:21.427Z"
+              created_at: "2018-09-28T20:09:50.391Z",
+              updated_at: "2018-09-28T20:09:50.391Z"
             },
             {
               id: 5,
@@ -83,8 +101,8 @@ class App extends Component {
               description:
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
               city_id: 1,
-              created_at: "2018-10-01T13:07:21.432Z",
-              updated_at: "2018-10-01T13:07:21.432Z"
+              created_at: "2018-09-28T20:09:50.394Z",
+              updated_at: "2018-09-28T20:09:50.394Z"
             },
             {
               id: 6,
@@ -96,57 +114,61 @@ class App extends Component {
               description:
                 "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
               city_id: 1,
-              created_at: "2018-10-01T13:07:21.437Z",
-              updated_at: "2018-10-01T13:07:21.437Z"
+              created_at: "2018-09-28T20:09:50.396Z",
+              updated_at: "2018-09-28T20:09:50.396Z"
+            }
+          ]
+        },
+        {
+          id: 3,
+          name: "New trip",
+          user_id: 1,
+          date: null,
+          comment: "comments",
+          places: [
+            {
+              id: 1,
+              name: "Washington Monument",
+              img_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
+              lat: "38.8895",
+              lng: "-77.035278",
+              description:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+              city_id: 1,
+              created_at: "2018-09-28T20:09:50.379Z",
+              updated_at: "2018-09-28T20:09:50.379Z"
+            },
+            {
+              id: 2,
+              name: "Lincoln Memorial",
+              img_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
+              lat: "38.8893",
+              lng: "-77.0502",
+              description:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+              city_id: 1,
+              created_at: "2018-09-28T20:09:50.384Z",
+              updated_at: "2018-09-28T20:09:50.384Z"
+            },
+            {
+              id: 3,
+              name: "Thomas Jefferson Memorial",
+              img_url:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
+              lat: "38.8814",
+              lng: "-77.0365",
+              description:
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+              city_id: 1,
+              created_at: "2018-09-28T20:09:50.388Z",
+              updated_at: "2018-09-28T20:09:50.388Z"
             }
           ]
         }
       ],
       places: [
-        {
-          id: 1,
-          name: "Washington Monument",
-          img_url:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
-          lat: "38.8895",
-          lng: "-77.035278",
-          city_id: 1,
-          trips: [
-            {
-              id: 1,
-              user_id: 1,
-              name: "Boring DC",
-              date: "2018-10-09T00:00:00.000Z",
-              comment: "so much fun",
-              created_at: "2018-10-01T13:07:21.504Z",
-              updated_at: "2018-10-01T13:07:21.504Z"
-            }
-          ],
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-        },
-        {
-          id: 2,
-          name: "Lincoln Memorial",
-          img_url:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
-          lat: "38.8893",
-          lng: "-77.0502",
-          city_id: 1,
-          trips: [
-            {
-              id: 1,
-              user_id: 1,
-              name: "Boring DC",
-              date: "2018-10-09T00:00:00.000Z",
-              comment: "so much fun",
-              created_at: "2018-10-01T13:07:21.504Z",
-              updated_at: "2018-10-01T13:07:21.504Z"
-            }
-          ],
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-        },
         {
           id: 3,
           name: "Thomas Jefferson Memorial",
@@ -154,7 +176,12 @@ class App extends Component {
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
           lat: "38.8814",
           lng: "-77.0365",
-          city_id: 1,
+          city: {
+            id: 1,
+            name: "Washington DC",
+            created_at: "2018-09-28T20:09:50.345Z",
+            updated_at: "2018-09-28T20:09:50.345Z"
+          },
           trips: [
             {
               id: 1,
@@ -162,8 +189,17 @@ class App extends Component {
               name: "Boring DC",
               date: "2018-10-09T00:00:00.000Z",
               comment: "so much fun",
-              created_at: "2018-10-01T13:07:21.504Z",
-              updated_at: "2018-10-01T13:07:21.504Z"
+              created_at: "2018-09-28T20:09:50.437Z",
+              updated_at: "2018-09-28T20:09:50.437Z"
+            },
+            {
+              id: 3,
+              user_id: 1,
+              name: "New trip",
+              date: null,
+              comment: "comments",
+              created_at: "2018-10-02T13:04:11.154Z",
+              updated_at: "2018-10-02T13:04:11.154Z"
             }
           ],
           description:
@@ -176,7 +212,12 @@ class App extends Component {
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
           lat: "38.8899",
           lng: "-77.0091",
-          city_id: 1,
+          city: {
+            id: 1,
+            name: "Washington DC",
+            created_at: "2018-09-28T20:09:50.345Z",
+            updated_at: "2018-09-28T20:09:50.345Z"
+          },
           trips: [
             {
               id: 1,
@@ -184,8 +225,8 @@ class App extends Component {
               name: "Boring DC",
               date: "2018-10-09T00:00:00.000Z",
               comment: "so much fun",
-              created_at: "2018-10-01T13:07:21.504Z",
-              updated_at: "2018-10-01T13:07:21.504Z"
+              created_at: "2018-09-28T20:09:50.437Z",
+              updated_at: "2018-09-28T20:09:50.437Z"
             }
           ],
           description:
@@ -198,7 +239,12 @@ class App extends Component {
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
           lat: "38.8894",
           lng: "-77.0405",
-          city_id: 1,
+          city: {
+            id: 1,
+            name: "Washington DC",
+            created_at: "2018-09-28T20:09:50.345Z",
+            updated_at: "2018-09-28T20:09:50.345Z"
+          },
           trips: [
             {
               id: 1,
@@ -206,8 +252,8 @@ class App extends Component {
               name: "Boring DC",
               date: "2018-10-09T00:00:00.000Z",
               comment: "so much fun",
-              created_at: "2018-10-01T13:07:21.504Z",
-              updated_at: "2018-10-01T13:07:21.504Z"
+              created_at: "2018-09-28T20:09:50.437Z",
+              updated_at: "2018-09-28T20:09:50.437Z"
             }
           ],
           description:
@@ -220,7 +266,12 @@ class App extends Component {
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
           lat: "38.8878",
           lng: "-77.0478",
-          city_id: 1,
+          city: {
+            id: 1,
+            name: "Washington DC",
+            created_at: "2018-09-28T20:09:50.345Z",
+            updated_at: "2018-09-28T20:09:50.345Z"
+          },
           trips: [
             {
               id: 1,
@@ -228,8 +279,98 @@ class App extends Component {
               name: "Boring DC",
               date: "2018-10-09T00:00:00.000Z",
               comment: "so much fun",
-              created_at: "2018-10-01T13:07:21.504Z",
-              updated_at: "2018-10-01T13:07:21.504Z"
+              created_at: "2018-09-28T20:09:50.437Z",
+              updated_at: "2018-09-28T20:09:50.437Z"
+            }
+          ],
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+        },
+        {
+          id: 1,
+          name: "Washington Monument",
+          img_url:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
+          lat: "38.8895",
+          lng: "-77.035278",
+          city: {
+            id: 1,
+            name: "Washington DC",
+            created_at: "2018-09-28T20:09:50.345Z",
+            updated_at: "2018-09-28T20:09:50.345Z"
+          },
+          trips: [
+            {
+              id: 3,
+              user_id: 1,
+              name: "New trip",
+              date: null,
+              comment: "comments",
+              created_at: "2018-10-02T13:04:11.154Z",
+              updated_at: "2018-10-02T13:04:11.154Z"
+            }
+          ],
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+        },
+        {
+          id: 2,
+          name: "Lincoln Memorial",
+          img_url:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
+          lat: "38.8893",
+          lng: "-77.0502",
+          city: {
+            id: 1,
+            name: "Washington DC",
+            created_at: "2018-09-28T20:09:50.345Z",
+            updated_at: "2018-09-28T20:09:50.345Z"
+          },
+          trips: [
+            {
+              id: 3,
+              user_id: 1,
+              name: "New trip",
+              date: null,
+              comment: "comments",
+              created_at: "2018-10-02T13:04:11.154Z",
+              updated_at: "2018-10-02T13:04:11.154Z"
+            }
+          ],
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+        },
+        {
+          id: 3,
+          name: "Thomas Jefferson Memorial",
+          img_url:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJlyLR90iqIYw5RjXtq2aSefDgzHJqQ14HVolU8haSfOOlHgjpA",
+          lat: "38.8814",
+          lng: "-77.0365",
+          city: {
+            id: 1,
+            name: "Washington DC",
+            created_at: "2018-09-28T20:09:50.345Z",
+            updated_at: "2018-09-28T20:09:50.345Z"
+          },
+          trips: [
+            {
+              id: 1,
+              user_id: 1,
+              name: "Boring DC",
+              date: "2018-10-09T00:00:00.000Z",
+              comment: "so much fun",
+              created_at: "2018-09-28T20:09:50.437Z",
+              updated_at: "2018-09-28T20:09:50.437Z"
+            },
+            {
+              id: 3,
+              user_id: 1,
+              name: "New trip",
+              date: null,
+              comment: "comments",
+              created_at: "2018-10-02T13:04:11.154Z",
+              updated_at: "2018-10-02T13:04:11.154Z"
             }
           ],
           description:
@@ -237,16 +378,6 @@ class App extends Component {
         }
       ],
       place_trips: [
-        {
-          id: 1,
-          place_id: 1,
-          trip_id: 1
-        },
-        {
-          id: 2,
-          place_id: 2,
-          trip_id: 1
-        },
         {
           id: 3,
           place_id: 3,
@@ -266,27 +397,81 @@ class App extends Component {
           id: 6,
           place_id: 6,
           trip_id: 1
+        },
+        {
+          id: 13,
+          place_id: 1,
+          trip_id: 3
+        },
+        {
+          id: 14,
+          place_id: 2,
+          trip_id: 3
+        },
+        {
+          id: 15,
+          place_id: 3,
+          trip_id: 3
         }
       ]
     },
     places: [],
+    trips: [],
     currentTrip: {},
     cities: [],
-    filteredPlaces: null
+    filteredPlaces: null,
+    edit: false
   };
 
   componentDidMount() {
     fetch(`http://localhost:3000/places`)
-      .then(response => response.json())
+      .then(r => r.json())
       .then(places => {
-        let uniqueCities = new Set();
-        places.forEach(p => uniqueCities.add(p.city.name));
         this.setState({
-          places: places,
-          cities: [...uniqueCities]
+          places: places
+        });
+      });
+
+    fetch(`http://localhost:3000/trips`)
+      .then(r => r.json())
+      .then(trips => {
+        this.setState({
+          trips: trips
+        });
+      });
+
+    fetch(`http://localhost:3000/cities`)
+      .then(r => r.json())
+      .then(cities => {
+        console.log(cities);
+        this.setState({
+          cities: cities
         });
       });
   }
+
+  handleToggleEdit = () => {
+    this.setState({
+      edit: !this.state.edit
+    });
+  };
+
+  handleUpdateTrip = (id, { name, date, comment }) => {
+    fetch(`http://localhost:3000/trips/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        name,
+        date,
+        comment
+      }),
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(trip => this.props.history.push(`/trips/${id}`));
+  };
 
   handleCreateTrip = (event, addedPlaces) => {
     fetch(`http://localhost:3000/trips`, {
@@ -299,7 +484,6 @@ class App extends Component {
     })
       .then(response => response.json())
       .then(trip => {
-        console.log(trip);
         let promises = addedPlaces.map(place => {
           return fetch("http://localhost:3000/place_trips", {
             method: "POST",
@@ -374,11 +558,13 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route
+            exact
             path="/trips/:tripId"
             render={() => (
               <TripContainer
                 currentTrip={this.state.currentTrip}
                 handleDeletePlace={this.handleDeletePlace}
+                handleToggleEdit={this.handleToggleEdit}
               />
             )}
           />
@@ -391,11 +577,16 @@ class App extends Component {
                     ? this.state.filteredPlaces
                     : this.state.places
                 }
+                trips={this.state.trips}
                 handleCreateTrip={this.handleCreateTrip}
                 currentUser={this.state.currentUser}
+                currentTrip={this.state.currentTrip}
                 handleCurrentTrip={this.handleCurrentTrip}
                 cities={this.state.cities}
                 handleFormFilterChange={this.handleFormFilterChange}
+                edit={this.state.edit}
+                handleToggleEdit={this.handleToggleEdit}
+                handleUpdateTrip={this.handleUpdateTrip}
               />
             )}
           />

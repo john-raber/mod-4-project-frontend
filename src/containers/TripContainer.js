@@ -4,15 +4,24 @@ import { Link } from "react-router-dom";
 
 import PlaceCard from "../components/PlaceCard";
 
-const TripContainer = ({ currentTrip, handleDeletePlace }) => {
+const TripContainer = ({
+  currentTrip,
+  handleDeletePlace,
+  handleToggleEdit
+}) => {
   return (
     <Fragment>
       {/*Trip Page*/}
       <PageHeader bsClass="custom-trip-page">
         Trip: {currentTrip.name}
       </PageHeader>
-      <Link to="/places">
-        <Button bsClass="custom-button custom-trip-page">Add Place</Button>
+      <Link to={`/trips/${currentTrip.id}/places`}>
+        <Button
+          bsClass="custom-button custom-trip-page"
+          onClick={handleToggleEdit}
+        >
+          Edit Trip
+        </Button>
       </Link>
 
       <Grid>
