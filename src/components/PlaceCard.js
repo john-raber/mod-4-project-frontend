@@ -8,15 +8,20 @@ const PlaceCard = ({ place, handleClick, handleDeletePlace }) => {
       <Switch>
         <Route exact path="/trips/:tripId">
           <Well bsSize="large">
-            <Image src={place.img_url} rounded />
+            <Image src={place.img_url} rounded responsive />
             <h3>{place.name}</h3>
             <p>{place.description}</p>
-            <Button onClick={() => handleDeletePlace(place)}>Delete</Button>
+            <Button
+              bsClass="custom-button"
+              onClick={() => handleDeletePlace(place)}
+            >
+              Delete
+            </Button>
           </Well>
         </Route>
         <Route path="/">
           <Well bsSize="large" onClick={() => handleClick(place)}>
-            <Image src={place.img_url} rounded />
+            <Image src={place.img_url} rounded responsive />
             <h3>{place.name}</h3>
             <p>{place.description}</p>
           </Well>
