@@ -280,7 +280,6 @@ class App extends Component {
       .then(response => response.json())
       .then(places => {
         let uniqueCities = new Set();
-        console.log(places);
         places.forEach(p => uniqueCities.add(p.city.name));
         this.setState({
           places: places,

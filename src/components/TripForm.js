@@ -22,11 +22,9 @@ class TripForm extends Component {
   };
 
   render() {
-    console.log("TripForm", this.props.cities);
     return (
       <Form
         onSubmit={event => {
-          console.log("onSubmit", this.props.addedPlaces);
           this.props.handleCreateTrip(event, this.props.addedPlaces);
         }}
       >
