@@ -12,6 +12,15 @@ class HomeContainer extends Component {
     addedPlaces: []
   };
 
+  handleRemovePlace = place => {
+    let currentPlaces = [...this.state.addedPlaces];
+    let index = currentPlaces.indexOf(place);
+    currentPlaces.splice(index, 1);
+    this.setState({
+      addedPlaces: currentPlaces
+    });
+  };
+
   handleAddPlace = place => {
     let currentPlaces = [...this.state.addedPlaces];
     !currentPlaces.includes(place) ? currentPlaces.push(place) : null;
@@ -100,6 +109,7 @@ class HomeContainer extends Component {
               handleFormFilterChange={this.props.handleFormFilterChange}
               handleToggleEdit={this.props.handleToggleEdit}
               handleUpdateTrip={this.props.handleUpdateTrip}
+              handleRemovePlace={this.handleRemovePlace}
             />
           </Col>
         </Row>

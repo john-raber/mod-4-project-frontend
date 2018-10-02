@@ -7,8 +7,7 @@ import PlaceCard from "../components/PlaceCard";
 const TripContainer = ({
   currentTrip,
   handleDeletePlace,
-  handleToggleEdit,
-  handleDeleteTrip
+  handleToggleEdit
 }) => {
   return (
     <Fragment>
@@ -33,7 +32,7 @@ const TripContainer = ({
             <Row className="show-grid">
               {currentTrip.places.map(place => {
                 return (
-                  <Col sm={4} md={3} lg={3}>
+                  <Col key={place.id} sm={4} md={3} lg={3}>
                     <PlaceCard
                       place={place}
                       handleDeletePlace={handleDeletePlace}

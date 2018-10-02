@@ -522,9 +522,12 @@ class App extends Component {
   getFormData = event => {
     event.preventDefault();
     let tripName = event.target.children[0].children[1].value;
-    let tripDate = event.target.children[2].children[1].value;
+    let tripDate =
+      event.target.children[2].children[1].children[0].children[0].children[0]
+        .value;
     let tripComment = event.target.children[3].children[1].value;
     let userId = this.state.currentUser.id;
+
     event.target.reset();
     return {
       name: tripName,

@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Switch, Route } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 import {
   Button,
   Form,
@@ -14,7 +17,7 @@ class TripForm extends Component {
   state = {
     name: "",
     city: "",
-    date: "",
+    date: moment(),
     comment: ""
   };
 
@@ -22,12 +25,24 @@ class TripForm extends Component {
     this.setState({ [name]: value });
   };
 
+  handleDateChange = newDate => {
+    this.setState({
+      date: newDate
+    });
+  };
+
   render() {
     if (this.props.edit) {
+      let year = this.props.currentTrip.date.split("-")[0];
+      let month = this.props.currentTrip.date.split("-")[1];
+      let date = this.props.currentTrip.date.split("-")[2].split("T")[0];
+
+      let dateMoment = moment().set({ year: year, month: month, date: date });
+
       this.setState({
         name: this.props.currentTrip.name,
         city: this.props.currentTrip.places[0].city.name,
-        date: this.props.currentTrip.date,
+        date: dateMoment,
         comment: this.props.currentTrip.comment
       });
       this.props.handleToggleEdit();
@@ -83,14 +98,9 @@ class TripForm extends Component {
                 </FormGroup>
                 <FormGroup>
                   <ControlLabel>Date</ControlLabel>
-                  <FormControl
-                    name="date"
-                    onChange={e => {
-                      this.handleFormChange(e.target.name, e.target.value);
-                    }}
-                    type="text"
-                    placeholder="Pick your date!"
-                    value={this.state.date}
+                  <DatePicker
+                    onChange={this.handleDateChange}
+                    selected={this.state.date}
                   />
                 </FormGroup>
                 <FormGroup>
@@ -112,6 +122,12 @@ class TripForm extends Component {
                       <Fragment>
                         <Image src={p.img_url} rounded />
                         <h5>{p.name}</h5>
+                        <Button
+                          onClick={this.props.handleRemovePlace}
+                          bsClass="custom-button"
+                        >
+                          Remove from Trip
+                        </Button>
                       </Fragment>
                     );
                   })}
@@ -161,13 +177,9 @@ class TripForm extends Component {
             </FormGroup>
             <FormGroup>
               <ControlLabel>Date</ControlLabel>
-              <FormControl
-                name="date"
-                onChange={e => {
-                  this.handleFormChange(e.target.name, e.target.value);
-                }}
-                type="text"
-                placeholder="Pick your date!"
+              <DatePicker
+                onChange={this.handleDateChange}
+                selected={this.state.date}
               />
             </FormGroup>
             <FormGroup>
@@ -188,6 +200,12 @@ class TripForm extends Component {
                   <Fragment>
                     <Image src={p.img_url} rounded />
                     <h5>{p.name}</h5>
+                    <Button
+                      onClick={this.props.handleRemovePlace}
+                      bsClass="custom-button"
+                    >
+                      Remove from Trip
+                    </Button>
                   </Fragment>
                 );
               })}

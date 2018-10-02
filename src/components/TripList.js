@@ -12,7 +12,7 @@ class TripList extends React.Component {
           })
           .map(trip => {
             return (
-              <Fragment>
+              <Fragment key={trip.id}>
                 <Link to={`/trips/${trip.id}`}>
                   <ListGroupItem
                     bsStyle="warning"
