@@ -1,28 +1,37 @@
-.App {
-  text-align: center;
-}
+/* FONTS */
+@import url("https://fonts.googleapis.com/css?family=Niramit:500,700");
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+/* CUSTOM CSS */
+.custom-button {
   color: white;
+  background-color: #38aee0;
+  border-radius: 6px;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.2rem;
+  line-height: 3rem;
+  margin-bottom: 5rem;
 }
 
-.App-title {
-  font-size: 1.5em;
+body {
+  font-family: "Niramit", sans-serif;
+  letter-spacing: 0.1rem;
 }
 
-.App-intro {
-  font-size: large;
+.custom-form {
+  margin-left: 5px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.custom-trip-page {
+  margin-left: 6rem;
+  margin-bottom: 2rem;
+}
+
+/* places page city filter */
+.form-control {
+  margin-bottom: 3rem;
+}
+
+.row {
+  margin-right: -10px;
+  margin-left: -22px;
 }
