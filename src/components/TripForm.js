@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
   Button,
   Form,
@@ -24,6 +24,7 @@ class TripForm extends Component {
   render() {
     return (
       <Form
+        bsClass="custom-form"
         onSubmit={event => {
           this.props.handleCreateTrip(event, this.props.addedPlaces);
         }}
@@ -80,11 +81,19 @@ class TripForm extends Component {
           />
         </FormGroup>
         <Well>
+          <h5>Selected Places:</h5>
           {this.props.addedPlaces.map(p => {
-            return <Image src={p.img_url} rounded />;
+            return (
+              <Fragment>
+                <Image src={p.img_url} rounded />
+                <h5>{p.name}</h5>
+              </Fragment>
+            );
           })}
         </Well>
-        <Button type="submit">Create Trip</Button>
+        <Button type="submit" bsClass="custom-button">
+          Create Trip
+        </Button>
       </Form>
     );
   }

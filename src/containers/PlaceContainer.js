@@ -8,11 +8,11 @@ const PlaceContainer = ({ places, handleClick }) => {
     <Fragment>
       <Grid>
         <Row className="show-grid">
-          <Col lg={8}>
+          <Col sm={12} md={8} lg={8}>
             <Row className="show-grid">
               {places.map(p => {
                 return (
-                  <Col lg={6} key={p.id}>
+                  <Col sm={4} md={4} lg={4} key={p.id}>
                     <PlaceCard handleClick={handleClick} place={p} />
                   </Col>
                 );

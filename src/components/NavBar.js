@@ -7,7 +7,7 @@ const NavBar = () => {
     <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
-          <NavLink to="/">Travelgram</NavLink>
+          <NavLink to="/">TRAVELGRAM</NavLink>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>

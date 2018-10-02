@@ -8,18 +8,20 @@ const TripContainer = ({ currentTrip, handleDeletePlace }) => {
   return (
     <Fragment>
       {/*Trip Page*/}
-      <PageHeader>{currentTrip.name}</PageHeader>
+      <PageHeader bsClass="custom-trip-page">
+        Trip: {currentTrip.name}
+      </PageHeader>
       <Link to="/places">
-        <Button>Add Place</Button>
+        <Button bsClass="custom-button custom-trip-page">Add Place</Button>
       </Link>
 
       <Grid>
         <Row className="show-grid">
-          <Col md={12} lg={12}>
+          <Col sm={12} md={12} lg={12}>
             <Row className="show-grid">
               {currentTrip.places.map(place => {
                 return (
-                  <Col md={3} lg={3}>
+                  <Col sm={4} md={3} lg={3}>
                     <PlaceCard
                       place={place}
                       handleDeletePlace={handleDeletePlace}

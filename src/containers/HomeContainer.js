@@ -45,8 +45,13 @@ class HomeContainer extends Component {
                   <Switch>
                     <Route exact path="/places">
                       <Fragment>
-                        <PageHeader>Places!</PageHeader>
+                        <PageHeader>
+                          Places!{" "}
+                          <small>Click on a place to add to trip form</small>
+                        </PageHeader>
+
                         <CityFilter
+                          bsClass="custom-city-filter"
                           cities={this.props.cities}
                           handleFormFilterChange={
                             this.props.handleFormFilterChange
