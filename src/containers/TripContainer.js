@@ -7,14 +7,17 @@ import PlaceCard from "../components/PlaceCard";
 const TripContainer = ({
   currentTrip,
   handleDeletePlace,
-  handleToggleEdit
+  handleToggleEdit,
+  handleDeleteTrip
 }) => {
   return (
     <Fragment>
       {/*Trip Page*/}
       <PageHeader bsClass="custom-trip-page">
-        Trip: {currentTrip.name}
+        Trip: {currentTrip.name}{" "}
+        <small>{currentTrip.places[0].city.name}</small>
       </PageHeader>
+
       <Link to={`/trips/${currentTrip.id}/places`}>
         <Button
           bsClass="custom-button custom-trip-page"

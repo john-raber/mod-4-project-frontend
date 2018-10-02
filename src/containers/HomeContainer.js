@@ -52,6 +52,7 @@ class HomeContainer extends Component {
                     currentUser={this.props.currentUser}
                     trips={this.props.trips}
                     handleCurrentTrip={this.props.handleCurrentTrip}
+                    handleDeleteTrip={this.props.handleDeleteTrip}
                   />
                 </Fragment>
               </Route>

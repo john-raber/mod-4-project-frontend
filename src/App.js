@@ -443,7 +443,6 @@ class App extends Component {
     fetch(`http://localhost:3000/cities`)
       .then(r => r.json())
       .then(cities => {
-        console.log(cities);
         this.setState({
           cities: cities
         });
@@ -470,7 +469,18 @@ class App extends Component {
       }
     })
       .then(response => response.json())
-      .then(trip => this.props.history.push(`/trips/${id}`));
+      .then(trip => {
+        this.setState({
+          currentTrip: trip
+        });
+        this.props.history.push(`/trips/${id}`);
+      });
+  };
+
+  handleDeleteTrip = id => {
+    fetch(`http://localhost:3000/trips/${id}`, {
+      method: "DELETE"
+    }).then(r => this.props.history.push(`/`));
   };
 
   handleCreateTrip = (event, addedPlaces) => {
@@ -536,6 +546,8 @@ class App extends Component {
         place_trips.trip_id === this.state.currentTrip.id
     );
 
+    console.log(selectedPlaceTrip);
+
     fetch(`http://localhost:3000/place_trips/${selectedPlaceTrip.id}`, {
       method: "DELETE"
     });
@@ -587,6 +599,7 @@ class App extends Component {
                 edit={this.state.edit}
                 handleToggleEdit={this.handleToggleEdit}
                 handleUpdateTrip={this.handleUpdateTrip}
+                handleDeleteTrip={this.handleDeleteTrip}
               />
             )}
           />

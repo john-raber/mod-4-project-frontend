@@ -1,5 +1,5 @@
-import React from "react";
-import { ListGroup, ListGroupItem } from "react-bootstrap";
+import React, { Fragment } from "react";
+import { Button, ListGroup, ListGroupItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 class TripList extends React.Component {
@@ -12,15 +12,23 @@ class TripList extends React.Component {
           })
           .map(trip => {
             return (
-              <Link to={`/trips/${trip.id}`}>
-                <ListGroupItem
-                  bsStyle="warning"
-                  key={trip.id}
-                  onClick={() => this.props.handleCurrentTrip(trip)}
+              <Fragment>
+                <Link to={`/trips/${trip.id}`}>
+                  <ListGroupItem
+                    bsStyle="warning"
+                    key={trip.id}
+                    onClick={() => this.props.handleCurrentTrip(trip)}
+                  >
+                    {trip.name}
+                  </ListGroupItem>
+                </Link>
+                <Button
+                  onClick={event => this.props.handleDeleteTrip(trip.id)}
+                  bsClass="custom-button"
                 >
-                  {trip.name}
-                </ListGroupItem>
-              </Link>
+                  Delete
+                </Button>
+              </Fragment>
             );
           })}
       </ListGroup>

@@ -24,6 +24,13 @@ body {
 .custom-trip-page {
   margin-left: 6rem;
   margin-bottom: 2rem;
+  display: block;
+}
+
+.small,
+small {
+  display: block;
+  margin-top: 2rem;
 }
 
 /* places page city filter */

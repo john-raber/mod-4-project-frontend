@@ -39,7 +39,17 @@ class TripForm extends Component {
           path="/trips/:tripId/places"
           render={() => {
             return (
-              <Form>
+              <Form
+                bsClass="custom-form"
+                onSubmit={event => {
+                  event.preventDefault();
+                  this.props.handleUpdateTrip(
+                    this.props.currentTrip.id,
+                    this.state
+                  );
+                  event.target.reset();
+                }}
+              >
                 <FormGroup>
                   <ControlLabel>Name</ControlLabel>
                   <FormControl
@@ -113,7 +123,7 @@ class TripForm extends Component {
             );
           }}
         />
-        <Route>
+        <Route path="/">
           <Form
             bsClass="custom-form"
             onSubmit={event => {
