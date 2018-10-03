@@ -58,6 +58,7 @@ class TripForm extends Component {
                 bsClass="custom-form"
                 onSubmit={event => {
                   event.preventDefault();
+                  this.props.handleUpdatePlaceTrips();
                   this.props.handleUpdateTrip(
                     this.props.currentTrip.id,
                     this.state
@@ -117,7 +118,7 @@ class TripForm extends Component {
                 </FormGroup>
                 <Well>
                   <h5>Selected Places:</h5>
-                  {this.props.currentTrip.places.map(p => {
+                  {this.props.addedPlaces.map(p => {
                     return (
                       <Fragment>
                         <Image src={p.img_url} rounded />
