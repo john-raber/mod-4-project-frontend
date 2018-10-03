@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Well, Image, Button } from "react-bootstrap";
 
-const PlaceCard = ({ place, handleClick, handleDeletePlace }) => {
+const PlaceCard = ({ place, handleAddPlace, handleDeletePlace }) => {
   return (
     <div>
       <Switch>
@@ -20,7 +20,7 @@ const PlaceCard = ({ place, handleClick, handleDeletePlace }) => {
           </Well>
         </Route>
         <Route path="/">
-          <Well bsSize="large" onClick={() => handleClick(place)}>
+          <Well bsSize="large" onClick={() => handleAddPlace(place)}>
             <Image src={place.img_url} rounded responsive />
             <h3>{place.name}</h3>
             <p>{place.description}</p>

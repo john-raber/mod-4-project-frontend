@@ -17,7 +17,10 @@ class TripList extends React.Component {
                   <ListGroupItem
                     bsStyle="warning"
                     key={trip.id}
-                    onClick={() => this.props.handleCurrentTrip(trip)}
+                    onClick={() => {
+                      this.props.handleCurrentTrip(trip);
+                      this.props.handleSetAddedPlaces(trip.places);
+                    }}
                   >
                     {trip.name}
                   </ListGroupItem>

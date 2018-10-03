@@ -420,7 +420,8 @@ class App extends Component {
     currentTrip: {},
     cities: [],
     filteredPlaces: null,
-    edit: false
+    edit: false,
+    addedPlaces: []
   };
 
   componentDidMount() {
@@ -449,6 +450,30 @@ class App extends Component {
       });
   }
 
+  handleRemovePlace = place => {
+    let currentPlaces = [...this.state.addedPlaces];
+    let index = currentPlaces.indexOf(place);
+    currentPlaces.splice(index, 1);
+    this.setState({
+      addedPlaces: currentPlaces
+    });
+  };
+
+  handleAddPlace = place => {
+    let currentPlaces = [...this.state.addedPlaces];
+    !currentPlaces.includes(place) ? currentPlaces.push(place) : null;
+
+    this.setState({
+      addedPlaces: currentPlaces
+    });
+  };
+
+  handleSetAddedPlaces = places => {
+    this.setState({
+      addedPlaces: places
+    });
+  };
+
   handleToggleEdit = () => {
     this.setState({
       edit: !this.state.edit
@@ -474,6 +499,63 @@ class App extends Component {
           currentTrip: trip
         });
         this.props.history.push(`/trips/${id}`);
+      });
+  };
+
+  handleUpdatePlaceTrips = () => {
+    // bug -- if you go back into the edit form after completing an edit, all places are duplicated on save
+    let oldPlaces = this.state.currentTrip.places;
+    let newPlaceTrips = this.state.addedPlaces.filter(p => {
+      return !oldPlaces.includes(p);
+    });
+
+    console.log(newPlaceTrips);
+
+    // let placeTripsToDelete = oldPlaces.filter(op => {
+    //   return !this.state.addedPlaces.includes(op);
+    // });
+
+    // console.log(placeTripsToDelete);
+
+    let createPromises = newPlaceTrips.map(place => {
+      return fetch("http://localhost:3000/place_trips", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          trip_id: this.state.currentTrip.id,
+          place_id: place.id
+        })
+      });
+    });
+
+    // let placeTripIds = placeTripsToDelete.map(place => {
+    //   this.state.currentUser.place_trips.find(pt => {
+    //     pt.trip_id === this.state.currentTrip.id && pt.place_id === place.id;
+    //   });
+    // });
+    //
+    // console.log(placeTripIds);
+
+    // let deletePromises = placeTripIds.map(id => {
+    //   return fetch(`http://localhost:3000/place_trips/${id}`, {
+    //     method: "DELETE"
+    //   });
+    // });
+
+    Promise.all(createPromises)
+      .then(response => {
+        fetch(`http://localhost:3000/trips/${this.state.currentTrip.id}`)
+          .then(response => response.json())
+          .then(currentTrip => {
+            this.setState({ currentTrip: currentTrip });
+            this.props.history.push(`/trips/${currentTrip.id}`);
+          });
+      })
+      .catch(function(err) {
+        console.log("A promise failed to resolve", err);
       });
   };
 
@@ -603,6 +685,11 @@ class App extends Component {
                 handleToggleEdit={this.handleToggleEdit}
                 handleUpdateTrip={this.handleUpdateTrip}
                 handleDeleteTrip={this.handleDeleteTrip}
+                handleRemovePlace={this.handleRemovePlace}
+                handleAddPlace={this.handleAddPlace}
+                handleSetAddedPlaces={this.handleSetAddedPlaces}
+                addedPlaces={this.state.addedPlaces}
+                handleUpdatePlaceTrips={this.handleUpdatePlaceTrips}
               />
             )}
           />

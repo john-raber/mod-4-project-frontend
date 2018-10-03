@@ -8,29 +8,8 @@ import TripList from "../components/TripList";
 import CityFilter from "../components/CityFilter";
 
 class HomeContainer extends Component {
-  state = {
-    addedPlaces: []
-  };
-
-  handleRemovePlace = place => {
-    let currentPlaces = [...this.state.addedPlaces];
-    let index = currentPlaces.indexOf(place);
-    currentPlaces.splice(index, 1);
-    this.setState({
-      addedPlaces: currentPlaces
-    });
-  };
-
-  handleAddPlace = place => {
-    let currentPlaces = [...this.state.addedPlaces];
-    !currentPlaces.includes(place) ? currentPlaces.push(place) : null;
-
-    this.setState({
-      addedPlaces: currentPlaces
-    });
-  };
-
   render() {
+    console.log(this.props);
     return (
       <Grid>
         <Row className="show-grid">
@@ -48,8 +27,8 @@ class HomeContainer extends Component {
                     handleFormFilterChange={this.props.handleFormFilterChange}
                   />
                   <PlaceContainer
-                    handleClick={this.handleAddPlace}
                     places={this.props.places}
+                    handleAddPlace={this.props.handleAddPlace}
                   />
                 </Fragment>
               </Route>
@@ -62,6 +41,7 @@ class HomeContainer extends Component {
                     trips={this.props.trips}
                     handleCurrentTrip={this.props.handleCurrentTrip}
                     handleDeleteTrip={this.props.handleDeleteTrip}
+                    handleSetAddedPlaces={this.props.handleSetAddedPlaces}
                   />
                 </Fragment>
               </Route>
@@ -92,7 +72,7 @@ class HomeContainer extends Component {
                     </Route>
                   </Switch>
                   <PlaceContainer
-                    handleClick={this.handleAddPlace}
+                    handleAddPlace={this.props.handleAddPlace}
                     places={this.props.places}
                   />
                 </Fragment>
@@ -103,13 +83,14 @@ class HomeContainer extends Component {
             <TripForm
               edit={this.props.edit}
               currentTrip={this.props.currentTrip}
-              addedPlaces={this.state.addedPlaces}
+              addedPlaces={this.props.addedPlaces}
               handleCreateTrip={this.props.handleCreateTrip}
               cities={this.props.cities}
               handleFormFilterChange={this.props.handleFormFilterChange}
               handleToggleEdit={this.props.handleToggleEdit}
               handleUpdateTrip={this.props.handleUpdateTrip}
-              handleRemovePlace={this.handleRemovePlace}
+              handleRemovePlace={this.props.handleRemovePlace}
+              handleUpdatePlaceTrips={this.props.handleUpdatePlaceTrips}
             />
           </Col>
         </Row>
